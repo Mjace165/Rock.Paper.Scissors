@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rock • Paper • Scissors — Persistent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>  
+    <main class="app" role="application">
+        <section class="card title" aria-labelledby="title">
+            <h1 id="title">Rock • Paper • Scissors</h1>
+            <div class="controls">
+                <button class="btn-ghost" id="exportBtn" title="Export your data">📦 Export</button>
+                <button class="btn-ghost" id="importBtn" title="Import data from a file">📥 Import</button>
+                <button class="btn-reset" id="resetBtn" title="Reset all progress">♻️ Reset</button>
+            </div>
+        </section>
+
+        <section class="grid">
+            <section class="card area-a" aria-labelledby="arena">
+                <div class="score" role="status" aria-live="polite">
+                    <div class="kpi">
+                        <div class="label">Wins</div>
+                        <div class="value" id="wins">0</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="label">Losses</div>
+                        <div class="value" id="losses">0</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="label">Draws</div>
+                        <div class="value" id="draws">0</div>
+                    </div>
+                    <div class="kpi">
+                        <div class="label">Best Streak</div>
+                        <div class="value" id="bestStreak">0</div>
+                    </div>
+                </div>
+
+                <div class="arena" id="arena">
+                    <div class="avatar" aria-label="Your choice">
+                        <div class="pulse" id="pulseYou"></div>
+                        <div class="hand" id="youHand" aria-live="polite">✊</div>
+                    </div>
+                    <div class="vs">VS</div>
+                    <div class="avatar" aria-label="Computer choice">
+                        <div class="pulse" id="pulseCPU"></div>
+                        <div class="hand" id="cpuHand" aria-live="polite">✊</div>
+                    </div>
+                </div>
+
+                <div class="result" id="resultText" aria-live="assertive">Make your move.</div>
+
+                <div class="choices" role="group" aria-label="Choose Rock, Paper, or Scissors">
+                    <button class="choice btn-primary" data-move="rock" title="Rock (R)">
+                        <span class="emoji" aria-hidden="true">✊</span> Rock
+                    </button>
+                    <button class="choice btn-primary" data-move="paper" title="Paper (P)">
+                        <span class="emoji" aria-hidden="true">✋</span> Paper
+                    </button>
+                    <button class="choice btn-primary" data-move="scissors" title="Scissors (S)">
+                        <span class="emoji" aria-hidden="true">✌️</span> Scissors
+                    </button>
+                </div>
+            </section>
+
+            <section class="card area-b">
+                <h2 style="margin:0 0 8px">Match History</h2>
+                <div class="history" id="history" aria-live="polite" aria-label="Last rounds"></div>
+            </section>
+        </section>
+
+        <section class="footer">
+            <div>Persistence: <span class="chip" id="persistChip">localStorage ✅</span></div>
+            <div class="muted">Tip: Use keys R / P / S to play from keyboard.</div>
+            <div class="toggle" id="sfxToggle" role="switch" aria-checked="false" tabindex="0" title="Toggle click SFX">
+                <div class="knob"></div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+       
+</body>
+
+</html>
